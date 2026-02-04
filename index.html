@@ -4,23 +4,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerador de Etiquetas iFood</title>
+    <title>Gerador de Etiquetas - SEMAR</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        /* Estilos base para visualização em tela */
+        body {
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
         @media print {
+            /* Configuração da Página com margem mínima de segurança */
+            @page {
+                margin: 5mm;
+            }
+
+            .landscape-mode {
+                @page { 
+                    size: landscape; 
+                    margin: 5mm;
+                }
+            }
+            
+            body:not(.landscape-mode) {
+                @page { 
+                    size: portrait; 
+                    margin: 5mm;
+                }
+            }
+
+            /* Esconde elementos desnecessários */
             .no-print {
                 display: none !important;
             }
+            
             body {
-                margin: 0;
-                padding: 0;
+                margin: 0 !important;
+                padding: 0 !important;
                 background-color: white !important;
+                width: 100%;
             }
-            .page-break {
-                page-break-after: always;
+
+            /* Controle de Quebra de Página */
+            .print-page-break {
+                page-break-after: always !important;
+                break-after: page !important;
+                display: block;
             }
+
             .label-card {
-                break-inside: avoid;
+                break-inside: avoid !important;
+                page-break-inside: avoid !important;
+                display: flex !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+            }
+
+            /* Remove sombras e decorações que podem bugar a impressão */
+            * {
+                box-shadow: none !important;
+                text-shadow: none !important;
             }
         }
     </style>

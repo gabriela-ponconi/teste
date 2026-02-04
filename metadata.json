@@ -1,6 +1,5 @@
-
 {
-  "name": "iFood Label Generator",
+  "name": "GERADOR SEMAR ENTREGA",
   "description": "Gerador de etiquetas para pedidos iFood, separando sacolas secas e geladas para facilitar a entrega.",
   "requestFramePermissions": []
 }
